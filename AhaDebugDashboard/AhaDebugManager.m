@@ -21,7 +21,8 @@
 @implementation AhaDebugManager
 
 
-+ (instancetype)sharedAhaDebugManager {
++ (AhaDebugManager *)sharedInstance {
+    
     static AhaDebugManager * sharedInstance = nil;
     static dispatch_once_t pred;
     
@@ -32,6 +33,12 @@
     
     return sharedInstance;
 }
+
++ (void)show {
+    [[AhaDebugManager sharedInstance] showDebugView];
+}
+
+#pragma mark -
 
 - (id)init {
     self = [super init];
@@ -118,7 +125,7 @@
 
 - (void)actionSwitch:(id)sender {
     
-    VUISwitch * vSwitch = (VUISwitch *)sender;
+    AhaSwitch * vSwitch = (AhaSwitch *)sender;
     NSString * key = [[self.debugArray objectAtIndex:vSwitch.row] valueForKey:@"key"];
     
     [[NSUserDefaults standardUserDefaults] setBool:vSwitch.isOn forKey:key];
@@ -128,17 +135,17 @@
 @end
 
 
-@implementation DebugWindow
+@implementation AhaDebugWindow
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	
-    [[AhaDebugManager sharedAhaDebugManager] showDebugView];
+    [[AhaDebugManager sharedInstance] showDebugView];
 	[super motionEnded:motion withEvent:event];
 }
 
 @end
 
-@implementation VUISwitch
+@implementation AhaSwitch
 
 
 

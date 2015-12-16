@@ -7,6 +7,7 @@
 //
 
 #import "AhaDebugPreferencesViewController.h"
+#import "AhaLogViewController.h"
 
 @interface AhaDebugPreferencesViewController () {
 
@@ -26,7 +27,7 @@
 }
 
 - (id)init {
-	return [self init:[AhaDebugManager sharedAhaDebugManager]];
+	return [self init:[AhaDebugManager sharedInstance]];
 }
 
 - (void)viewDidLoad
@@ -56,10 +57,11 @@
     self.debugManager.hidden = YES;
 }
 
+
 #pragma mark -
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return [self.debugManager.debugArray count];
 }
 
@@ -70,7 +72,7 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        VUISwitch * switch_ = [[VUISwitch alloc] init];
+        AhaSwitch * switch_ = [[AhaSwitch alloc] init];
         switch_.tag = 99;
         [switch_ addTarget:self.debugManager action:@selector(actionSwitch:) forControlEvents:UIControlEventValueChanged];
         switch_.center = CGPointMake(self.view.frame.size.width - 50, 22);
@@ -79,7 +81,7 @@
         
     }
     
-    VUISwitch * switch_ = (VUISwitch *)[cell viewWithTag:99];
+    AhaSwitch * switch_ = (AhaSwitch *)[cell viewWithTag:99];
     switch_.row = indexPath.row;
     
     NSDictionary * dict = [self.debugManager.debugArray objectAtIndex:indexPath.row];

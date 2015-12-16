@@ -6,26 +6,27 @@
 //  Copyright (c) 2014年 wmloft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface AhaDebugManager : NSObject
 
 @property (nonatomic) BOOL hidden;
 @property (nonatomic, strong) NSArray * debugArray;
 
-// this is a singleton
-+ (instancetype)sharedAhaDebugManager;
 
-- (void)showDebugView;
++ (AhaDebugManager *)sharedInstance;
+
++ (void)show;
 
 - (void)actionSwitch:(id)sender;
-@end
-
-@interface DebugWindow : UIWindow
 
 @end
 
-@interface VUISwitch : UISwitch
+@interface AhaDebugWindow : UIWindow
+
+@end
+
+@interface AhaSwitch : UISwitch
 
 @property (nonatomic) NSInteger row;
 
