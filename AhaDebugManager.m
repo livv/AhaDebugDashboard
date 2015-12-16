@@ -7,7 +7,7 @@
 //
 
 #import "AhaDebugManager.h"
-#import "DebugPreferencesViewController.h"
+#import "AhaDebugPreferencesViewController.h"
 
 @interface AhaDebugManager () {
 
@@ -41,11 +41,9 @@
     return self;
 }
 
-- (void)initDebugArray:(NSArray *)debugArray {
-
-    self.debugArray = debugArray;
-    
-    for (NSDictionary * dict in self.debugArray) {
+- (void)setDebugArray:(NSArray *)debugArray {
+    _debugArray = debugArray;
+    for (NSDictionary * dict in _debugArray) {
         id value = [dict objectForKey:@"value"];
         NSString * key = [dict objectForKey:@"key"];
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{key: value}];
@@ -75,7 +73,7 @@
     self.navController = nil;
 
     
-    DebugPreferencesViewController * debugVC = [[DebugPreferencesViewController alloc] init:self];
+    AhaDebugPreferencesViewController * debugVC = [[AhaDebugPreferencesViewController alloc] init:self];
     self.navController = [[UINavigationController alloc] initWithRootViewController:debugVC];
     
     if (parentViewController) {
@@ -121,12 +119,14 @@
 - (void)actionSwitch:(id)sender {
     
     VUISwitch * vSwitch = (VUISwitch *)sender;
-    NSString * key = [[self.debugArray objectAtIndex:vSwitch.row] objectForKey:@"key"];
+    NSString * key = [[self.debugArray objectAtIndex:vSwitch.row] valueForKey:@"key"];
     
     [[NSUserDefaults standardUserDefaults] setBool:vSwitch.isOn forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 @end
+
 
 @implementation DebugWindow
 

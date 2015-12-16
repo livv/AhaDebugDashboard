@@ -15,7 +15,7 @@
 
 // this is a singleton
 + (instancetype)sharedAhaDebugManager;
-- (void)initDebugArray:(NSArray *)debugArray;
+
 - (void)showDebugView;
 
 - (void)actionSwitch:(id)sender;

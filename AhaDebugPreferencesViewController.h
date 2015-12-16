@@ -1,5 +1,5 @@
 //
-//  DebugPreferencesViewController.h
+//  AhaDebugPreferencesViewController.h
 //  superText
 //
 //  Created by wei on 14-1-17.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AhaDebugManager.h"
 
-@interface DebugPreferencesViewController : UITableViewController
+@interface AhaDebugPreferencesViewController : UITableViewController
 
 @property (nonatomic) BOOL modalAnimated;
 

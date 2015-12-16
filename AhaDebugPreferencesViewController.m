@@ -6,16 +6,16 @@
 //  Copyright (c) 2014年 wmloft. All rights reserved.
 //
 
-#import "DebugPreferencesViewController.h"
+#import "AhaDebugPreferencesViewController.h"
 
-@interface DebugPreferencesViewController () {
+@interface AhaDebugPreferencesViewController () {
 
     
 }
 
 @end
 
-@implementation DebugPreferencesViewController
+@implementation AhaDebugPreferencesViewController
 
 - (id)init:(AhaDebugManager *)newDebugManager {
     if ((self = [super initWithStyle:UITableViewStylePlain])) {
@@ -49,7 +49,7 @@
 
 - (void)onAction:(id)sender {
     
-    [self dismissViewControllerAnimated:NO
+    [self dismissViewControllerAnimated:YES
                              completion:^(void){
                              }];
     
@@ -73,7 +73,7 @@
         VUISwitch * switch_ = [[VUISwitch alloc] init];
         switch_.tag = 99;
         [switch_ addTarget:self.debugManager action:@selector(actionSwitch:) forControlEvents:UIControlEventValueChanged];
-        switch_.center = CGPointMake(250, 22);
+        switch_.center = CGPointMake(self.view.frame.size.width - 50, 22);
         [cell addSubview:switch_];
         cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
         
