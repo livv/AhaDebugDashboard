@@ -138,6 +138,10 @@
     [[AhaLog sharedInstance] resetLog];
 }
 
++ (NSString *)logStr {
+    
+    return [[self sharedInstance].logs componentsJoinedByString:@"\n"];
+}
 
 #pragma mark - private
 

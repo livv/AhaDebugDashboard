@@ -47,17 +47,32 @@
                                                         delegate:self
                                                cancelButtonTitle:@"Cancel"
                                           destructiveButtonTitle:@"Clear"
-                                               otherButtonTitles:nil, nil];
+                                               otherButtonTitles:@"Send by Email", nil];
     [sheet showInView:self.view];
 }
 
 #pragma mark - UIActionSheetDelegate 
 
+- (NSString *)URLEncodedString:(NSString *)string
+{
+    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, CFSTR("!*'\"();:@&=+$,/?%#[]% "), kCFStringEncodingUTF8));
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        
         [AhaLog clear];
         [self.mainTable reloadData];
+        
+    } else if (buttonIndex == 1) {
+        
+        NSString *URLSafeName = [self URLEncodedString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
+        NSString *URLSafeLog = [self URLEncodedString:[AhaLog logStr]];
+        NSMutableString *URLString = [NSMutableString stringWithFormat:@"mailto:%@?subject=%@%%20Console%%20Log&body=%@",
+                                      _logSubmissionEmail ?: @"", URLSafeName, URLSafeLog];
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
     }
 }
 

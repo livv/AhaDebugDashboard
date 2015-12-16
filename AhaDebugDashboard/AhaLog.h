@@ -53,4 +53,6 @@ typedef NS_ENUM(NSInteger, AhaLogLevel) {
 
 + (void)clear;
 
++ (NSString *)logStr;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface AhaLogViewController : UIViewController
 
+@property (nonatomic, copy) NSString * logSubmissionEmail;
+
 @end
