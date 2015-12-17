@@ -202,12 +202,12 @@
         [dict setObject:message forKey:@"content"];
     }
     
-    [self.logs addObject:dict];
+    [self.logs insertObject:dict atIndex:0];
     
     
     if ([self.logs count] > _maxLogCount) {
         
-        [self.logs removeObjectAtIndex:0];
+        [self.logs lastObject];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:self.logs forKey:@"AhaLogs"];
