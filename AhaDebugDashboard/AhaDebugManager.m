@@ -113,7 +113,6 @@
         if ([UIWindow instancesRespondToSelector:@selector(rootViewController)]) {
             if ([window rootViewController]) {
                 visibleWindow = window;
-                NSLog(@"UIWindow with rootViewController found: %@", visibleWindow);
                 break;
             }
         }
