@@ -23,15 +23,14 @@
 
 + (AhaDebugManager *)sharedInstance {
     
-    static AhaDebugManager * sharedInstance = nil;
+    static AhaDebugManager * instance = nil;
     static dispatch_once_t pred;
     
     dispatch_once(&pred, ^{
-        sharedInstance = [AhaDebugManager alloc];
-        sharedInstance = [sharedInstance init];
+        instance = [[AhaDebugManager alloc] init];
     });
     
-    return sharedInstance;
+    return instance;
 }
 
 + (void)show {

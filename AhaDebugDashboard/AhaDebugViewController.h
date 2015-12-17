@@ -11,9 +11,6 @@
 
 @interface AhaDebugViewController : UITableViewController
 
-@property (nonatomic) BOOL modalAnimated;
-
-@property (nonatomic, retain) AhaDebugManager * debugManager;
 
 - (id)init:(AhaDebugManager *)newDebugManager;
 

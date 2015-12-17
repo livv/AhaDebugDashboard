@@ -10,9 +10,11 @@
 #import "AhaLogViewController.h"
 
 @interface AhaDebugViewController () {
-
+    
     
 }
+
+@property (nonatomic, strong) AhaDebugManager * debugManager;
 
 @end
 
@@ -27,16 +29,16 @@
 }
 
 - (id)init {
-	return [self init:[AhaDebugManager sharedInstance]];
+    return [self init:[AhaDebugManager sharedInstance]];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                           target:self
                                                                                           action:@selector(onAction:)];
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,16 +63,16 @@
 #pragma mark -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return [self.debugManager.debugArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString * cellIdentifier = @"cellDebug";
+    static NSString * cellIdentifier = @"AhaCellDebug";
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (nil == cell) {
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         AhaSwitch * switch_ = [[AhaSwitch alloc] init];
         switch_.tag = 99;
@@ -78,7 +80,6 @@
         switch_.center = CGPointMake(self.view.frame.size.width - 50, 22);
         [cell addSubview:switch_];
         cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-        
     }
     
     AhaSwitch * switch_ = (AhaSwitch *)[cell viewWithTag:99];
@@ -92,10 +93,13 @@
     id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     
     if ([value isKindOfClass:[NSString class]]) {
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         switch_.hidden = YES;
+        
     } else if ([value isKindOfClass:[NSNumber class]]) {
+        
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         switch_.hidden = NO;
