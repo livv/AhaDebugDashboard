@@ -7,7 +7,7 @@
 //
 
 #import "AhaDebugManager.h"
-#import "AhaDebugPreferencesViewController.h"
+#import "AhaDebugViewController.h"
 
 @interface AhaDebugManager () {
 
@@ -80,7 +80,7 @@
     self.navController = nil;
 
     
-    AhaDebugPreferencesViewController * debugVC = [[AhaDebugPreferencesViewController alloc] init:self];
+    AhaDebugViewController * debugVC = [[AhaDebugViewController alloc] init:self];
     self.navController = [[UINavigationController alloc] initWithRootViewController:debugVC];
     
     if (parentViewController) {

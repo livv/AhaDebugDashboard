@@ -12,7 +12,7 @@
 		B6FE93551C21469B00EEE25B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6FE93541C21469B00EEE25B /* Assets.xcassets */; };
 		B6FE93581C21469B00EEE25B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FE93561C21469B00EEE25B /* LaunchScreen.storyboard */; };
 		B6FE93641C2146FC00EEE25B /* AhaDebugManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93611C2146FC00EEE25B /* AhaDebugManager.m */; };
-		B6FE93651C2146FC00EEE25B /* AhaDebugPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93631C2146FC00EEE25B /* AhaDebugPreferencesViewController.m */; };
+		B6FE93651C2146FC00EEE25B /* AhaDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93631C2146FC00EEE25B /* AhaDebugViewController.m */; };
 		B6FE93681C2148B500EEE25B /* AhaLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93671C2148B500EEE25B /* AhaLogViewController.m */; };
 		B6FE936B1C21495500EEE25B /* AhaLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE936A1C21495500EEE25B /* AhaLog.m */; };
 		B6FE93721C21683C00EEE25B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93701C21683C00EEE25B /* DemoViewController.m */; };
@@ -31,8 +31,8 @@
 		B6FE93591C21469B00EEE25B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6FE93601C2146FC00EEE25B /* AhaDebugManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaDebugManager.h; sourceTree = "<group>"; };
 		B6FE93611C2146FC00EEE25B /* AhaDebugManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AhaDebugManager.m; sourceTree = "<group>"; };
-		B6FE93621C2146FC00EEE25B /* AhaDebugPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaDebugPreferencesViewController.h; sourceTree = "<group>"; };
-		B6FE93631C2146FC00EEE25B /* AhaDebugPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AhaDebugPreferencesViewController.m; sourceTree = "<group>"; };
+		B6FE93621C2146FC00EEE25B /* AhaDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaDebugViewController.h; sourceTree = "<group>"; };
+		B6FE93631C2146FC00EEE25B /* AhaDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AhaDebugViewController.m; sourceTree = "<group>"; };
 		B6FE93661C2148B500EEE25B /* AhaLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaLogViewController.h; sourceTree = "<group>"; };
 		B6FE93671C2148B500EEE25B /* AhaLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AhaLogViewController.m; sourceTree = "<group>"; };
 		B6FE93691C21495500EEE25B /* AhaLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaLog.h; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 			children = (
 				B6FE93601C2146FC00EEE25B /* AhaDebugManager.h */,
 				B6FE93611C2146FC00EEE25B /* AhaDebugManager.m */,
-				B6FE93621C2146FC00EEE25B /* AhaDebugPreferencesViewController.h */,
-				B6FE93631C2146FC00EEE25B /* AhaDebugPreferencesViewController.m */,
+				B6FE93621C2146FC00EEE25B /* AhaDebugViewController.h */,
+				B6FE93631C2146FC00EEE25B /* AhaDebugViewController.m */,
 				B6FE93661C2148B500EEE25B /* AhaLogViewController.h */,
 				B6FE93671C2148B500EEE25B /* AhaLogViewController.m */,
 				B6FE93691C21495500EEE25B /* AhaLog.h */,
@@ -192,7 +192,7 @@
 				B6FE93771C224FEA00EEE25B /* AhaLogCell.m in Sources */,
 				B6FE934A1C21469B00EEE25B /* main.m in Sources */,
 				B6FE93681C2148B500EEE25B /* AhaLogViewController.m in Sources */,
-				B6FE93651C2146FC00EEE25B /* AhaDebugPreferencesViewController.m in Sources */,
+				B6FE93651C2146FC00EEE25B /* AhaDebugViewController.m in Sources */,
 				B6FE936B1C21495500EEE25B /* AhaLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

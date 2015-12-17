@@ -261,6 +261,7 @@
 - (NSMutableArray *)logs {
     if (!_logs) {
         _logs = [[NSMutableArray alloc] initWithCapacity:_maxLogCount];
+        [_logs addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"AhaLogs"]];
     }
     return _logs;
 }

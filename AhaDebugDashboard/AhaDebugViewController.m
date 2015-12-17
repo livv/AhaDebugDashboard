@@ -1,22 +1,22 @@
 //
-//  DebugPreferencesViewController.m
+//  AhaDebugViewController.m
 //  superText
 //
 //  Created by wei on 14-1-17.
 //  Copyright (c) 2014年 wmloft. All rights reserved.
 //
 
-#import "AhaDebugPreferencesViewController.h"
+#import "AhaDebugViewController.h"
 #import "AhaLogViewController.h"
 
-@interface AhaDebugPreferencesViewController () {
+@interface AhaDebugViewController () {
 
     
 }
 
 @end
 
-@implementation AhaDebugPreferencesViewController
+@implementation AhaDebugViewController
 
 - (id)init:(AhaDebugManager *)newDebugManager {
     if ((self = [super initWithStyle:UITableViewStylePlain])) {
