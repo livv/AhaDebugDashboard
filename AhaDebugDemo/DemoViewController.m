@@ -37,7 +37,7 @@
         text = @"World";
     }
     NSString * msg = [NSString stringWithFormat:@"Hello %@", text];
-    [AhaLog info:@"Said %@", msg];
+    [AhaLog logInfo:@"Said %@", msg];
     
     NSString * msg2 = [NSString stringWithFormat:@"%@\n%@", self.tv.text, msg];
     self.tv.text = msg2;

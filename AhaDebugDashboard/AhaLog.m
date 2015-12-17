@@ -45,35 +45,35 @@
     va_end(argList);
 }
 
-+ (void)info:(NSString *)format, ... {
++ (void)logInfo:(NSString *)format, ... {
     
     va_list argList;
     va_start(argList, format);
-    [self info:format args:argList];
+    [self logInfo:format args:argList];
     va_end(argList);
 }
 
-+ (void)warn:(NSString *)format, ... {
++ (void)logWarn:(NSString *)format, ... {
     
     va_list argList;
     va_start(argList, format);
-    [self warn:format args:argList];
+    [self logWarn:format args:argList];
     va_end(argList);
 }
 
-+ (void)error:(NSString *)format, ... {
++ (void)logError:(NSString *)format, ... {
     
     va_list argList;
     va_start(argList, format);
-    [self error:format args:argList];
+    [self logError:format args:argList];
     va_end(argList);
 }
 
-+ (void)crash:(NSString *)format, ... {
++ (void)logCrash:(NSString *)format, ... {
     
     va_list argList;
     va_start(argList, format);
-    [self crash:format args:argList];
+    [self logCrash:format args:argList];
     va_end(argList);
 }
 
@@ -101,7 +101,7 @@
     }
 }
 
-+ (void)info:(NSString *)format args:(va_list)argList {
++ (void)logInfo:(NSString *)format args:(va_list)argList {
     
     if ([self sharedInstance].logLevel >= AhaLogLevelInfo) {
         
@@ -109,7 +109,7 @@
     }
 }
 
-+ (void)warn:(NSString *)format args:(va_list)argList {
++ (void)logWarn:(NSString *)format args:(va_list)argList {
     
     if ([self sharedInstance].logLevel >= AhaLogLevelWarning) {
         
@@ -117,7 +117,7 @@
     }
 }
 
-+ (void)error:(NSString *)format args:(va_list)argList {
++ (void)logError:(NSString *)format args:(va_list)argList {
     
     if ([self sharedInstance].logLevel >= AhaLogLevelError)
     {
@@ -125,7 +125,7 @@
     }
 }
 
-+ (void)crash:(NSString *)format args:(va_list)argList {
++ (void)logCrash:(NSString *)format args:(va_list)argList {
     
     if ([self sharedInstance].logLevel >= AhaLogLevelCrash) {
         

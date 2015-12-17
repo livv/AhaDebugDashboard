@@ -40,16 +40,16 @@ typedef NS_ENUM(NSInteger, AhaLogLevel) {
 + (AhaLog *)sharedInstance;
 
 + (void)log:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
-+ (void)info:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
-+ (void)warn:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
-+ (void)error:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
-+ (void)crash:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
++ (void)logInfo:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
++ (void)logWarn:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
++ (void)logError:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
++ (void)logCrash:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
 
 + (void)log:(NSString *)format args:(va_list)argList;
-+ (void)info:(NSString *)format args:(va_list)argList;
-+ (void)warn:(NSString *)format args:(va_list)argList;
-+ (void)error:(NSString *)format args:(va_list)argList;
-+ (void)crash:(NSString *)format args:(va_list)argList;
++ (void)logInfo:(NSString *)format args:(va_list)argList;
++ (void)logWarn:(NSString *)format args:(va_list)argList;
++ (void)logError:(NSString *)format args:(va_list)argList;
++ (void)logCrash:(NSString *)format args:(va_list)argList;
 
 + (void)clear;
 
