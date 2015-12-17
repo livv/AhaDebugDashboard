@@ -54,9 +54,9 @@
     
     [self dismissViewControllerAnimated:YES
                              completion:^(void){
+                                 self.debugManager.hidden = YES;
                              }];
     
-    self.debugManager.hidden = YES;
 }
 
 

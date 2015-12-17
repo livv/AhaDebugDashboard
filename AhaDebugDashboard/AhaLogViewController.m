@@ -42,6 +42,11 @@
     [super viewDidAppear:animated];
     
     self.mainTable.frame = self.view.bounds;
+    self.mainTable.delegate = [AhaLog sharedInstance];
+    self.mainTable.dataSource = [AhaLog sharedInstance];
+    
+    NSIndexSet * hehe = [NSIndexSet indexSetWithIndex:0];
+    [self.mainTable reloadSections:hehe withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -87,8 +92,6 @@
 - (UITableView *)mainTable {
     if (!_mainTable) {
         _mainTable = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _mainTable.delegate = [AhaLog sharedInstance];
-        _mainTable.dataSource = [AhaLog sharedInstance];
         _mainTable.tableFooterView = [UIView new];
         [_mainTable registerNib:[AhaLogCell nib] forCellReuseIdentifier:[AhaLogCell cellIdentifier]];
     }
