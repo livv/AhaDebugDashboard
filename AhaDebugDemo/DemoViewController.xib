@@ -3,11 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoViewController">
             <connections>
                 <outlet property="tf" destination="z9N-8p-yoH" id="7jR-Ug-Trw"/>
+                <outlet property="tv" destination="71w-kN-qro" id="1XY-ud-U0U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,15 +23,15 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="GBc-Kb-WFs"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="EN6-JF-bPW"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-S2-5Gu">
-                    <rect key="frame" x="285" y="147" width="30" height="30"/>
-                    <state key="normal" title="Say"/>
+                    <rect key="frame" x="281" y="147" width="38" height="30"/>
+                    <state key="normal" title="Say It"/>
                     <connections>
                         <action selector="actionSay:" destination="-1" eventType="touchUpInside" id="hlu-TK-bX3"/>
                     </connections>
@@ -41,15 +43,25 @@
                         <action selector="actionShowDebug:" destination="-1" eventType="touchUpInside" id="Zwc-7M-rn3"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="71w-kN-qro">
+                    <rect key="frame" x="8" y="213" width="584" height="252"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="z9N-8p-yoH" secondAttribute="trailing" constant="8" id="9Ed-MJ-amc"/>
                 <constraint firstAttribute="bottom" secondItem="1nm-gU-fjb" secondAttribute="bottom" constant="35" id="C39-KG-FkS"/>
+                <constraint firstItem="71w-kN-qro" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="CBs-ys-Pbu"/>
                 <constraint firstItem="Oql-S2-5Gu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cs4-nY-057"/>
                 <constraint firstItem="z9N-8p-yoH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="Rot-av-lgv"/>
+                <constraint firstItem="71w-kN-qro" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="UCa-gi-C2g"/>
                 <constraint firstItem="z9N-8p-yoH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="YI9-sW-yBj"/>
                 <constraint firstItem="Oql-S2-5Gu" firstAttribute="top" secondItem="z9N-8p-yoH" secondAttribute="bottom" constant="40" id="bIU-n8-vgd"/>
+                <constraint firstItem="71w-kN-qro" firstAttribute="top" secondItem="Oql-S2-5Gu" secondAttribute="bottom" constant="36" id="bqN-tu-lMv"/>
+                <constraint firstItem="1nm-gU-fjb" firstAttribute="top" secondItem="71w-kN-qro" secondAttribute="bottom" constant="70" id="osT-Ub-fOg"/>
                 <constraint firstItem="Oql-S2-5Gu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="pZk-Q0-0Bb"/>
                 <constraint firstItem="1nm-gU-fjb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="te9-Xg-8Np"/>
             </constraints>

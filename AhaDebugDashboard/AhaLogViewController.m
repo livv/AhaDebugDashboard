@@ -8,6 +8,8 @@
 
 #import "AhaLogViewController.h"
 #import "AhaLog.h"
+#import "AhaLogCell.h"
+#import "AhaDebugManager.h"
 
 @interface AhaLogViewController ()
 <UIActionSheetDelegate>
@@ -22,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Logs";
+    self.title = @"日志";
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
@@ -51,6 +53,7 @@
     [sheet showInView:self.view];
 }
 
+
 #pragma mark - UIActionSheetDelegate 
 
 - (NSString *)URLEncodedString:(NSString *)string
@@ -70,7 +73,7 @@
         NSString *URLSafeName = [self URLEncodedString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
         NSString *URLSafeLog = [self URLEncodedString:[AhaLog logStr]];
         NSMutableString *URLString = [NSMutableString stringWithFormat:@"mailto:%@?subject=%@%%20Console%%20Log&body=%@",
-                                      _logSubmissionEmail ?: @"", URLSafeName, URLSafeLog];
+                                      [AhaDebugManager sharedInstance].logSubmissionEmail ?: @"", URLSafeName, URLSafeLog];
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
     }
@@ -85,6 +88,7 @@
         _mainTable.delegate = [AhaLog sharedInstance];
         _mainTable.dataSource = [AhaLog sharedInstance];
         _mainTable.tableFooterView = [UIView new];
+        [_mainTable registerNib:[AhaLogCell nib] forCellReuseIdentifier:[AhaLogCell cellIdentifier]];
     }
     return _mainTable;
 }

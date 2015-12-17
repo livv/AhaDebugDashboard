@@ -12,6 +12,8 @@
 
 @interface DemoViewController ()
 @property (nonatomic, weak) IBOutlet UITextField * tf;
+@property (nonatomic, weak) IBOutlet UITextView * tv;
+
 
 @end
 
@@ -36,6 +38,9 @@
     }
     NSString * msg = [NSString stringWithFormat:@"Hello %@", text];
     [AhaLog info:@"Said %@", msg];
+    
+    NSString * msg2 = [NSString stringWithFormat:@"%@\n%@", self.tv.text, msg];
+    self.tv.text = msg2;
 }
 
 

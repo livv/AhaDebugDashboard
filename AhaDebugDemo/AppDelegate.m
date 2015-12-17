@@ -12,6 +12,7 @@
 #import "AhaLogViewController.h"
 
 
+
 @interface AppDelegate ()
 
 @end
@@ -24,8 +25,9 @@
 
     self.window = [[AhaDebugWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSArray * debugs = @[@{@"title": @"理财 - 推送框", @"key": @"123", @"value": @NO},
-                         @{@"title": @"Logs", @"key": @"321", @"value": @"AhaLogViewController"}];
+                         @{@"title": @"日志", @"key": @"321", @"value": @"AhaLogViewController"}];
     [AhaDebugManager sharedInstance].debugArray = debugs;
+    [AhaDebugManager sharedInstance].logSubmissionEmail = @"lihaiwei@niuguwang.com";
     
     self.window.rootViewController = [[DemoViewController alloc] initWithNibName:@"DemoViewController" bundle:nil];
     [self.window makeKeyAndVisible];

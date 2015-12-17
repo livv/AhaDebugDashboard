@@ -7,7 +7,7 @@
 //
 
 #import "AhaLog.h"
-
+#import "AhaLogCell.h"
 
 @interface AhaLog ()
 
@@ -158,6 +158,10 @@
                                                  selector:@selector(saveSettings)
                                                      name:UIApplicationWillTerminateNotification
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(saveSettings)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -220,25 +224,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UILabel * logLabel = nil;
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AhaLogCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AhaLogCell"];
-        
-        logLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, CGRectGetWidth([[UIScreen mainScreen] bounds]) - 30, 55)];
-        logLabel.font = [UIFont systemFontOfSize:14.0f];
-        logLabel.textColor = [UIColor darkGrayColor];
-        logLabel.numberOfLines = 0;
-        logLabel.tag = 101;
-        
-        [cell.contentView addSubview:logLabel];
-    } else {
-        logLabel = [cell.contentView viewWithTag:101];
-    }
-    
-    NSDictionary * item = self.logs[indexPath.row];
-    logLabel.text = [item objectForKey:@"content"];
-    [logLabel sizeToFit];
+    AhaLogCell * cell = [tableView dequeueReusableCellWithIdentifier:[AhaLogCell cellIdentifier] forIndexPath:indexPath];
+    [cell config:self.logs[indexPath.row]];
     
     return cell;
 }
@@ -248,14 +235,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSDictionary * item = self.logs[indexPath.row];
-    NSString * logStr = [item objectForKey:@"content"];
-    
-    NSInteger options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-    return [logStr boundingRectWithSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds]) - 30, CGFLOAT_MAX)
-                                 options:options
-                              attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14.0f]}
-                                 context:nil].size.height + 20;
+    return [AhaLogCell cellHeightWithtDict:self.logs[indexPath.row]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

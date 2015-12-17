@@ -17,6 +17,8 @@
 		B6FE936B1C21495500EEE25B /* AhaLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE936A1C21495500EEE25B /* AhaLog.m */; };
 		B6FE93721C21683C00EEE25B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93701C21683C00EEE25B /* DemoViewController.m */; };
 		B6FE93731C21683C00EEE25B /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FE93711C21683C00EEE25B /* DemoViewController.xib */; };
+		B6FE93771C224FEA00EEE25B /* AhaLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE93751C224FEA00EEE25B /* AhaLogCell.m */; };
+		B6FE93781C224FEA00EEE25B /* AhaLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6FE93761C224FEA00EEE25B /* AhaLogCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,9 @@
 		B6FE936F1C21683C00EEE25B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		B6FE93701C21683C00EEE25B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		B6FE93711C21683C00EEE25B /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		B6FE93741C224FEA00EEE25B /* AhaLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AhaLogCell.h; sourceTree = "<group>"; };
+		B6FE93751C224FEA00EEE25B /* AhaLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AhaLogCell.m; sourceTree = "<group>"; };
+		B6FE93761C224FEA00EEE25B /* AhaLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AhaLogCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,9 @@
 				B6FE93671C2148B500EEE25B /* AhaLogViewController.m */,
 				B6FE93691C21495500EEE25B /* AhaLog.h */,
 				B6FE936A1C21495500EEE25B /* AhaLog.m */,
+				B6FE93741C224FEA00EEE25B /* AhaLogCell.h */,
+				B6FE93751C224FEA00EEE25B /* AhaLogCell.m */,
+				B6FE93761C224FEA00EEE25B /* AhaLogCell.xib */,
 			);
 			path = AhaDebugDashboard;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 				B6FE93581C21469B00EEE25B /* LaunchScreen.storyboard in Resources */,
 				B6FE93731C21683C00EEE25B /* DemoViewController.xib in Resources */,
 				B6FE93551C21469B00EEE25B /* Assets.xcassets in Resources */,
+				B6FE93781C224FEA00EEE25B /* AhaLogCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +189,7 @@
 				B6FE93641C2146FC00EEE25B /* AhaDebugManager.m in Sources */,
 				B6FE934D1C21469B00EEE25B /* AppDelegate.m in Sources */,
 				B6FE93721C21683C00EEE25B /* DemoViewController.m in Sources */,
+				B6FE93771C224FEA00EEE25B /* AhaLogCell.m in Sources */,
 				B6FE934A1C21469B00EEE25B /* main.m in Sources */,
 				B6FE93681C2148B500EEE25B /* AhaLogViewController.m in Sources */,
 				B6FE93651C2146FC00EEE25B /* AhaDebugPreferencesViewController.m in Sources */,

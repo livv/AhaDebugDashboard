@@ -12,6 +12,7 @@
 
 @property (nonatomic) BOOL hidden;
 @property (nonatomic, strong) NSArray * debugArray;
+@property (nonatomic, copy) NSString * logSubmissionEmail;
 
 
 + (AhaDebugManager *)sharedInstance;
