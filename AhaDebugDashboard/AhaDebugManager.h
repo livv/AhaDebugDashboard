@@ -6,7 +6,8 @@
 //  Copyright (c) 2014年 wmloft. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+
 
 @interface AhaDebugManager : NSObject
 

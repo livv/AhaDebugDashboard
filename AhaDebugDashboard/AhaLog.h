@@ -6,7 +6,7 @@
 //  Copyright © 2015年 livv. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 
 typedef NS_ENUM(NSInteger, AhaLogLevel) {
