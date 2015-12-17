@@ -33,6 +33,7 @@
     return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
 }
 
+
 #pragma mark - public
 
 + (UINib *)nib {
@@ -58,7 +59,7 @@
     return [logStr boundingRectWithSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds]) - 30, CGFLOAT_MAX)
                                 options:options
                              attributes:@{NSFontAttributeName : [AhaLogCell cellFont]}
-                                context:nil].size.height + 20;
+                                context:nil].size.height + 20 + 1;
     
 }
 @end

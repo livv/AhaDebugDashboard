@@ -26,10 +26,12 @@
 
     self.title = @"日志";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                                                                              target:self
-                                                                              action:@selector(actionNavRight:)];
+
+    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithTitle:@"点我"
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(actionNavRight:)];
+
     self.navigationItem.rightBarButtonItem = barItem;
     
     [self.view addSubview:self.mainTable];
@@ -72,7 +74,7 @@
         
         NSString *URLSafeName = [self URLEncodedString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
         NSString *URLSafeLog = [self URLEncodedString:[AhaLog logStr]];
-        NSMutableString *URLString = [NSMutableString stringWithFormat:@"mailto:%@?subject=%@%%20Console%%20Log&body=%@",
+        NSMutableString *URLString = [NSMutableString stringWithFormat:@"mailto:%@?subject=%@%%20Log&body=%@",
                                       [AhaDebugManager sharedInstance].logSubmissionEmail ?: @"", URLSafeName, URLSafeLog];
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
