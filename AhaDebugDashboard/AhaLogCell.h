@@ -15,6 +15,6 @@
 
 
 - (void)config:(NSDictionary *)dict;
-+ (CGFloat)cellHeightWithtDict:(NSDictionary *)dict;
+- (CGFloat)cellHeightWithInfo:(NSDictionary *)info;
 
 @end

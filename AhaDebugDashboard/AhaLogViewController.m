@@ -94,6 +94,7 @@
         _mainTable = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _mainTable.tableFooterView = [UIView new];
         [_mainTable registerNib:[AhaLogCell nib] forCellReuseIdentifier:[AhaLogCell cellIdentifier]];
+        [_mainTable registerNib:[AhaLogCell nib] forCellReuseIdentifier:@"aha_off_screen"];
     }
     return _mainTable;
 }

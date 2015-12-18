@@ -234,8 +234,16 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    return [AhaLogCell cellHeightWithtDict:self.logs[indexPath.row]];
+    
+    static AhaLogCell *cell = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"aha_off_screen"];
+    });
+    
+    return [cell cellHeightWithInfo:self.logs[indexPath.row]];
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

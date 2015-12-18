@@ -51,15 +51,23 @@
     self.contentLabel.text = dict[@"content"];
 }
 
-+ (CGFloat)cellHeightWithtDict:(NSDictionary *)dict {
+- (CGFloat)cellHeightWithInfo:(NSDictionary *)info {
     
-    NSString * logStr = [dict objectForKey:@"content"];
+    [self config:info];
     
-    NSInteger options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-    return [logStr boundingRectWithSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds]) - 30, CGFLOAT_MAX)
-                                options:options
-                             attributes:@{NSFontAttributeName : [AhaLogCell cellFont]}
-                                context:nil].size.height + 20 + 1;
+    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
     
+    self.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth([[UIScreen mainScreen] bounds]), CGRectGetHeight(self.bounds));
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    
+    CGFloat height = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    height += 1;
+    
+    return height;
 }
+
 @end
