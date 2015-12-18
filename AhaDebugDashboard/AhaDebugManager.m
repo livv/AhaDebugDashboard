@@ -9,6 +9,9 @@
 #import "AhaDebugManager.h"
 #import "AhaDebugViewController.h"
 
+
+NSString *const AhaNotificationNavRightBtnTap = @"AhaNotificationNavRightBtnTap";
+
 @interface AhaDebugManager () {
 
 }

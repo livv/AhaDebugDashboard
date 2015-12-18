@@ -11,6 +11,9 @@
 #import "DemoViewController.h"
 #import "AhaLogViewController.h"
 
+#if DEBUG
+#import "FLEXManager.h"
+#endif
 
 
 @interface AppDelegate ()
@@ -22,15 +25,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-
+    
+#if DEBUG
     self.window = [[AhaDebugWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSArray * debugs = @[@{@"title": @"作弊", @"key": @"key_cheat", @"value": @NO},
                          @{@"title": @"日志", @"key": @"key_log", @"value": @"AhaLogViewController"}];
     [AhaDebugManager sharedInstance].debugArray = debugs;
     [AhaDebugManager sharedInstance].logSubmissionEmail = @"xxx@xxx.com";
+    [AhaDebugManager sharedInstance].navRightTitle = @"FLEX";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(ahaNoti:)
+                                                 name:AhaNotificationNavRightBtnTap
+                                               object:nil];
+#else
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+#endif
     
     self.window.rootViewController = [[DemoViewController alloc] initWithNibName:@"DemoViewController" bundle:nil];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
@@ -56,5 +70,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - 
+
+#if DEBUG
+- (void)ahaNoti:(NSNotification *)noti {
+
+    [[FLEXManager sharedManager] showExplorer];
+}
+#endif
 
 @end

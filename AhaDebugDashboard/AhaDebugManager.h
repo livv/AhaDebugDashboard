@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 
+UIKIT_EXTERN NSString *const AhaNotificationNavRightBtnTap;
+
 @interface AhaDebugManager : NSObject
 
 @property (nonatomic) BOOL hidden;
 @property (nonatomic, strong) NSArray * debugArray;
 @property (nonatomic, copy) NSString * logSubmissionEmail;
+@property (nonatomic, copy) NSString * navRightTitle;
+
 
 
 + (AhaDebugManager *)sharedInstance;

@@ -9,6 +9,8 @@
 #import "AhaDebugViewController.h"
 #import "AhaLogViewController.h"
 
+#define FLEX_SHOW [[FLEXManager sharedManager] showExplorer]
+
 @interface AhaDebugViewController () {
     
     
@@ -35,9 +37,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
                                                                                           target:self
-                                                                                          action:@selector(onAction:)];
+                                                                                          action:@selector(actionClose:)];
+
+    if (self.debugManager.navRightTitle.length > 0) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:self.debugManager.navRightTitle
+                                                                                  style:UIBarButtonItemStylePlain
+                                                                                 target:self
+                                                                                 action:@selector(actionFlex:)];
+    }
+    
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -50,7 +60,7 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)onAction:(id)sender {
+- (void)actionClose:(id)sender {
     
     [self dismissViewControllerAnimated:YES
                              completion:^(void){
@@ -59,6 +69,12 @@
     
 }
 
+- (void)actionFlex:(id)sender {
+    
+    [self actionClose:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:AhaNotificationNavRightBtnTap object:nil];
+    
+}
 
 #pragma mark -
 
